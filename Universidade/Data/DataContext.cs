@@ -9,7 +9,7 @@ namespace Universidade.Data
         {
         }
 
-        public DbSet<Instituicao> Instituicaos { get; set; }
+        public DbSet<Instituicao> Instituicoes { get; set; }
         public DbSet<Curso> Cursos { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 using Universidade.Data;
 using Microsoft.EntityFrameworkCore;
-using Universidade.Services;
+using Universidade.Services.ServiceCurso;
+using Universidade.Services.ServiceInstituicao;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
 builder.Services.AddScoped<DataContext, DataContext>();
 builder.Services.AddScoped<ICursoService, CursoService>();
+builder.Services.AddScoped<IInstituicaoService, InstituicaoService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

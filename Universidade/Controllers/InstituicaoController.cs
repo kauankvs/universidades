@@ -5,7 +5,7 @@ namespace Universidade.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UniversidadeController : ControllerBase
+    public class InstituicaoController : ControllerBase
     {
     }
 }

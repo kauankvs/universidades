@@ -1,4 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
+using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
+using Universidade.Enums;
 
 namespace Universidade.Models
 {
@@ -11,8 +14,9 @@ namespace Universidade.Models
         public string Nome { get; set; }
 
         [MaxLength(2, ErrorMessage = "Esse campo deve conter 2 caracteres")]
+        [MinLength(2, ErrorMessage = "Esse campo deve conter 2 caracteres")]
         [Required(ErrorMessage = "Esse campo é obrigatório!")]
-        public string Estado { get; set; }
+        public Estado Estado { get; set; }
 
         [Required(ErrorMessage = "Esse campo é obrigatório!")]
         public string Cidade { get; set; }
