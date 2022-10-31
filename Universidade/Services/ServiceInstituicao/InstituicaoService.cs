@@ -21,15 +21,15 @@ namespace Universidade.Services.ServiceInstituicao
             return instituicao;
         }
 
-        public async Task<ActionResult<List<Instituicao>>> ReceberInstituicaoPorEstado(Estado estado)
+        public async Task<ActionResult<List<Instituicao>>> ReceberTodasInstituicao()
         {
-            List<Instituicao> instituicao = await _context.Instituicoes.AsNoTracking().Where(i => i.Estado == estado).ToListAsync();
+            List<Instituicao> instituicao = await _context.Instituicoes.AsNoTracking().ToListAsync();
             return instituicao;
         }
 
-        public async Task<ActionResult<List<Instituicao>>> ReceberTodasInstituicao(int ID)
+        public async Task<ActionResult<List<Instituicao>>> ReceberInstituicaoPorEstado(Estado estado)
         {
-            List<Instituicao> instituicao = await _context.Instituicoes.AsNoTracking().ToListAsync();
+            List<Instituicao> instituicao = await _context.Instituicoes.AsNoTracking().Where(i => i.Estado == estado).ToListAsync();
             return instituicao;
         }
 

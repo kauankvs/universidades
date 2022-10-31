@@ -27,9 +27,9 @@ namespace Universidade.Services.ServiceCurso
             return cursos;
         }
 
-        public async Task<ActionResult<List<Curso>>> ReceberCursosPorInstituicao(Instituicao instituicao)
+        public async Task<ActionResult<List<Curso>>> ReceberCursosPorInstituicao(int ID)
         {
-            List<Curso> cursos = await _context.Cursos.Where(c => c.CursoID == instituicao.ID).AsNoTracking().ToListAsync();
+            List<Curso> cursos = await _context.Cursos.Where(c => c.CursoID == ID).AsNoTracking().ToListAsync();
             return cursos;
         }
 

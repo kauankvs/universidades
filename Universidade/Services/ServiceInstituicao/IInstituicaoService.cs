@@ -8,10 +8,9 @@ namespace Universidade.Services.ServiceInstituicao
     public interface IInstituicaoService
     {
         public Task<ActionResult<Instituicao>> ReceberInstituicaoPorID(int ID);
+        public Task<ActionResult<List<Instituicao>>> ReceberTodasInstituicao();
         public Task<ActionResult<List<Instituicao>>> ReceberInstituicaoPorEstado(Estado estado);
-        public Task<ActionResult<List<Instituicao>>> ReceberTodasInstituicao(int ID);
         public Task<ActionResult<Instituicao>> AdicionarInstituicao(Instituicao instituicao);
-
         public Task<ActionResult<Instituicao>> DeletarInstituicao(int ID);
     }
 }
