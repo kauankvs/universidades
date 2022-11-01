@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Universidade.Controllers;
 using Universidade.Data;
-using Universidade.Enums;
 using Universidade.Models;
 
 namespace Universidade.Services.ServiceInstituicao
@@ -10,7 +9,7 @@ namespace Universidade.Services.ServiceInstituicao
     public class InstituicaoService : IInstituicaoService
     {
         private readonly DataContext _context;
-        InstituicaoService(DataContext context)
+        public InstituicaoService(DataContext context)
         {
             _context = context;
         }
@@ -27,7 +26,7 @@ namespace Universidade.Services.ServiceInstituicao
             return instituicao;
         }
 
-        public async Task<ActionResult<List<Instituicao>>> ReceberInstituicaoPorEstado(Estado estado)
+        public async Task<ActionResult<List<Instituicao>>> ReceberInstituicaoPorEstado(string estado)
         {
             List<Instituicao> instituicao = await _context.Instituicoes.AsNoTracking().Where(i => i.Estado == estado).ToListAsync();
             return instituicao;
@@ -35,6 +34,7 @@ namespace Universidade.Services.ServiceInstituicao
 
         public async Task<ActionResult<Instituicao>> AdicionarInstituicao(Instituicao instituicao)
         {
+            instituicao.Estado = instituicao.Estado.ToUpper();
             await _context.Instituicoes.AddAsync(instituicao);
             await _context.SaveChangesAsync();
 

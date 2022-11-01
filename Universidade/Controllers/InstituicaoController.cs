@@ -1,12 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Universidade.Enums;
 using Universidade.Models;
 using Universidade.Services.ServiceInstituicao;
 
 namespace Universidade.Controllers
 {
-    [Route("[controller]")]
+    [Route("instituicao")]
     [ApiController]
     public class InstituicaoController : ControllerBase
     {
@@ -33,7 +32,7 @@ namespace Universidade.Controllers
 
         [HttpGet]
         [Route("todos/{estado}")]
-        public async Task<ActionResult<List<Instituicao>>> ReceberInstituicaoPorEstado([FromRoute] Estado estado)
+        public async Task<ActionResult<List<Instituicao>>> ReceberInstituicaoPorEstado([FromRoute] string estado)
         {
             return await _service.ReceberInstituicaoPorEstado(estado);
         }

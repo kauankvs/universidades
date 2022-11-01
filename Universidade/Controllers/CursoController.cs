@@ -5,7 +5,7 @@ using Universidade.Services.ServiceCurso;
 
 namespace Universidade.Controllers
 {
-    [Route("[controller]")]
+    [Route("curso")]
     [ApiController]
     public class CursoController : ControllerBase
     {
@@ -16,7 +16,9 @@ namespace Universidade.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<Curso>> ReceberCursoPorID([FromBody] int ID)
+        [Route("{ID}")]
+
+        public async Task<ActionResult<Curso>> ReceberCursoPorID([FromRoute] int ID)
         {
             return await _service.ReceberCursoPorID(ID);
         }
@@ -30,12 +32,15 @@ namespace Universidade.Controllers
 
         [HttpGet]
         [Route("todos/{ID}")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<List<Curso>>> ReceberCursosPorInstituicao([FromRoute] int ID)
         {
             return await _service.ReceberCursosPorInstituicao(ID);
         }
 
         [HttpPost]
+        [Route("")]
         public async Task<ActionResult<Curso>> AdicionarCurso([FromBody] Curso curso) 
         {
             return await _service.AdicionarCurso(curso); 

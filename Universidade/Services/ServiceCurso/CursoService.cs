@@ -10,7 +10,7 @@ namespace Universidade.Services.ServiceCurso
     public class CursoService : ICursoService
     {
         private readonly DataContext _context;
-        CursoService(DataContext context)
+        public CursoService(DataContext context)
         {
             _context = context;
         }
@@ -39,7 +39,8 @@ namespace Universidade.Services.ServiceCurso
             await _context.Cursos.AddAsync(curso);
             await _context.SaveChangesAsync();
 
-            return new CreatedAtActionResult(nameof(ReceberCursoPorID), nameof(CursoController), new { id = curso.CursoID }, curso);
+            return new NoContentResult();
+            //return new CreatedAtActionResult(nameof(ReceberCursoPorID), nameof(CursoController), new { id = curso.CursoID }, curso);
         }
 
         public async Task<ActionResult<Curso>> DeletarCurso(int ID)
