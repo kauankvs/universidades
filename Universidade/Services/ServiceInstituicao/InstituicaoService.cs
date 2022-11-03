@@ -28,7 +28,7 @@ namespace Universidade.Services.ServiceInstituicao
 
         public async Task<ActionResult<List<Instituicao>>> ReceberInstituicaoPorEstado(string estado)
         {
-            List<Instituicao> instituicao = await _context.Instituicoes.AsNoTracking().Where(i => i.Estado == estado).ToListAsync();
+            List<Instituicao> instituicao = await _context.Instituicoes.AsNoTracking().Where(i => i.Estado == estado.ToUpper()).ToListAsync();
             return instituicao;
         }
 
@@ -38,7 +38,10 @@ namespace Universidade.Services.ServiceInstituicao
             await _context.Instituicoes.AddAsync(instituicao);
             await _context.SaveChangesAsync();
 
-            return new CreatedAtActionResult(nameof(ReceberInstituicaoPorID), nameof(InstituicaoController), new { id = instituicao.ID }, instituicao);
+            var createdResourses = new { id = instituicao.ID };
+            string uri = "$https://localhost:7049/instituicao/{createdResourses.id}";
+
+            return new CreatedResult(uri, createdResourses);
         }
 
         public async Task<ActionResult<Instituicao>> DeletarInstituicao(int ID)

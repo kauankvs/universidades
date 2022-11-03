@@ -13,5 +13,10 @@ namespace Universidade.Models
         [Required(ErrorMessage = "Esse campo é obrigatório!")]
         public int Semestres { get; set; }
 
+        [Required(ErrorMessage = "Esse campo é obrigatório!")]
+        public int InstituicaoID { get; set; }
+
+        public Instituicao Instituicao { get; set; }
+
     }
 }

@@ -30,3 +30,4 @@ C:\Users\kauan\Downloads\projeto-c\Universidade\Universidade\obj\Debug\net6.0\re
 C:\Users\kauan\Downloads\projeto-c\Universidade\Universidade\obj\Debug\net6.0\Universidade.pdb
 C:\Users\kauan\Downloads\projeto-c\Universidade\Universidade\obj\Debug\net6.0\Universidade.genruntimeconfig.cache
 C:\Users\kauan\Downloads\projeto-c\Universidade\Universidade\obj\Debug\net6.0\ref\Universidade.dll
+C:\Users\kauan\Downloads\projeto-c\Universidade\Universidade\bin\Debug\net6.0\nunit.framework.dll

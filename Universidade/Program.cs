@@ -12,6 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
 builder.Services.AddTransient<DataContext, DataContext>();
 
+
 builder.Services.AddTransient<IInstituicaoService, InstituicaoService>();
 builder.Services.AddTransient<ICursoService, CursoService>();
 
